@@ -108,6 +108,56 @@ class ViewController: UIViewController {
                         "Player 6": 20,
                         "Player 7": 20,
                         "Player 8": 20]
+        
+        player1Decrement.keyboardType = .numberPad
+        player1Increment.keyboardType = .numberPad
+        
+        player2Decrement.keyboardType = .numberPad
+        player2Increment.keyboardType = .numberPad
+        
+        player3Decrement.keyboardType = .numberPad
+        player3Increment.keyboardType = .numberPad
+        
+        player4Decrement.keyboardType = .numberPad
+        player4Increment.keyboardType = .numberPad
+        
+        player5Decrement.keyboardType = .numberPad
+        player5Increment.keyboardType = .numberPad
+        
+        player6Decrement.keyboardType = .numberPad
+        player6Increment.keyboardType = .numberPad
+        
+        player7Decrement.keyboardType = .numberPad
+        player7Increment.keyboardType = .numberPad
+        
+        player8Decrement.keyboardType = .numberPad
+        player8Increment.keyboardType = .numberPad
+        
+        addDoneButtonOnNumpad(textField: player1Decrement)
+        addDoneButtonOnNumpad(textField: player1Increment)
+        addDoneButtonOnNumpad(textField: player2Decrement)
+        addDoneButtonOnNumpad(textField: player2Increment)
+        addDoneButtonOnNumpad(textField: player3Decrement)
+        addDoneButtonOnNumpad(textField: player3Increment)
+        addDoneButtonOnNumpad(textField: player4Decrement)
+        addDoneButtonOnNumpad(textField: player4Increment)
+        addDoneButtonOnNumpad(textField: player5Decrement)
+        addDoneButtonOnNumpad(textField: player5Increment)
+        addDoneButtonOnNumpad(textField: player6Decrement)
+        addDoneButtonOnNumpad(textField: player6Increment)
+        addDoneButtonOnNumpad(textField: player7Decrement)
+        addDoneButtonOnNumpad(textField: player7Increment)
+        addDoneButtonOnNumpad(textField: player8Decrement)
+        addDoneButtonOnNumpad(textField: player8Increment)
+        addDoneButtonOnNumpad(textField: player1Decrement)
+        addDoneButtonOnNumpad(textField: player1Increment)
+        addDoneButtonOnNumpad(textField: player2Decrement)
+        addDoneButtonOnNumpad(textField: player2Increment)
+        addDoneButtonOnNumpad(textField: player3Decrement)
+        addDoneButtonOnNumpad(textField: player3Increment)
+        addDoneButtonOnNumpad(textField: player4Decrement)
+        addDoneButtonOnNumpad(textField: player4Increment)
+        
     }
 
     @IBAction func viewHistoryBtn(_ sender: Any) {
@@ -309,8 +359,6 @@ class ViewController: UIViewController {
         evaluate()
     }
 
-
-
     func evaluate() {
         for (player, life) in playerScores {
             if life <= 0 {
@@ -351,6 +399,20 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func addDoneButtonOnNumpad(textField: UITextField) {
+            let keypadToolbar: UIToolbar = UIToolbar()
+            
+            // add a done button to the numberpad
+            keypadToolbar.items=[
+                UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: textField, action: #selector(UITextField.resignFirstResponder)),
+                UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+            ]
+            keypadToolbar.sizeToFit()
+        
+            // add a toolbar with a done button above the number pad
+            textField.inputAccessoryView = keypadToolbar
+    }//addDoneToKeyPad
     
 }
 
