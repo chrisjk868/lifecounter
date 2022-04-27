@@ -504,48 +504,56 @@
                         <outlet property="player1Decrement" destination="OG3-HI-4iz" id="Tzc-4C-Jp4"/>
                         <outlet property="player1Increment" destination="ll9-UO-Rds" id="wuY-81-2IZ"/>
                         <outlet property="player1MinusBtn" destination="c9Z-FQ-LKG" id="1Dp-gd-CRJ"/>
+                        <outlet property="player1Name" destination="Ymx-sy-pZB" id="BbP-cu-v8X"/>
                         <outlet property="player1Score" destination="qLn-Zq-tsB" id="3hd-0o-YOd"/>
                         <outlet property="player1View" destination="V9Y-MH-enq" id="fEP-LG-4hj"/>
                         <outlet property="player2AddBtn" destination="rxz-ry-El3" id="3c1-Py-P4e"/>
                         <outlet property="player2Decrement" destination="35N-ok-ae0" id="4tq-pi-bww"/>
                         <outlet property="player2Increment" destination="vxp-xr-704" id="FCR-Wi-N7d"/>
                         <outlet property="player2MinusBtn" destination="7gl-a4-1Nf" id="YKt-US-6hU"/>
+                        <outlet property="player2Name" destination="mp4-Kd-hUu" id="c99-Jh-OtR"/>
                         <outlet property="player2Score" destination="KdO-tH-r5J" id="505-bb-XnF"/>
                         <outlet property="player2View" destination="MKX-wk-06W" id="XtM-6h-T18"/>
                         <outlet property="player3AddBtn" destination="12X-Rm-akA" id="9Uv-Za-WXg"/>
                         <outlet property="player3Decrement" destination="KCI-io-THu" id="aeC-Gg-24Q"/>
                         <outlet property="player3Increment" destination="V0C-J2-Uha" id="TjQ-Ax-hWn"/>
                         <outlet property="player3MinusBtn" destination="5rl-ms-sFz" id="WQC-RS-ZjE"/>
+                        <outlet property="player3Name" destination="Sis-oM-zHp" id="7RP-JO-glg"/>
                         <outlet property="player3Score" destination="vbU-OU-6Mz" id="weJ-Ce-7vJ"/>
                         <outlet property="player3View" destination="IiL-GX-Miw" id="OfN-lI-5w9"/>
                         <outlet property="player4AddBtn" destination="zFG-AP-CjO" id="Vvk-Di-2BN"/>
                         <outlet property="player4Decrement" destination="F4g-IG-1oi" id="b1T-Zy-UeE"/>
                         <outlet property="player4Increment" destination="czM-jv-yP7" id="okS-Cc-xfL"/>
                         <outlet property="player4MinusBtn" destination="EfC-gJ-TAc" id="9Ip-uE-mja"/>
+                        <outlet property="player4Name" destination="ibF-DV-5Tc" id="0Ah-oV-9dI"/>
                         <outlet property="player4Score" destination="O4G-68-tBC" id="UOx-OQ-K8R"/>
                         <outlet property="player4View" destination="rIx-0D-3JF" id="3nn-3F-8of"/>
                         <outlet property="player5AddBtn" destination="odO-So-W4h" id="his-6r-2VN"/>
                         <outlet property="player5Decrement" destination="osq-zy-rzK" id="7Lw-KN-ZE2"/>
                         <outlet property="player5Increment" destination="Pe4-gp-evP" id="f8W-RX-PbE"/>
                         <outlet property="player5MinusBtn" destination="m2R-ko-naz" id="gFM-IM-Vvb"/>
+                        <outlet property="player5Name" destination="X9O-jR-Jgd" id="YoA-ai-l4F"/>
                         <outlet property="player5Score" destination="9fp-qH-3aA" id="UNS-0t-56F"/>
                         <outlet property="player5View" destination="x94-NE-X0u" id="F8M-nD-ZbY"/>
                         <outlet property="player6AddBtn" destination="Wro-i4-Rbg" id="aVE-E8-eSL"/>
                         <outlet property="player6Decrement" destination="FcH-Lp-O29" id="XQI-lm-t33"/>
                         <outlet property="player6Increment" destination="uNM-vQ-k34" id="ISY-IU-JL0"/>
                         <outlet property="player6MinusBtn" destination="ZXz-ZI-LWR" id="Amc-RI-osn"/>
+                        <outlet property="player6Name" destination="Mo9-8e-Wwz" id="EwM-Ex-f87"/>
                         <outlet property="player6Score" destination="Xi8-ir-cG5" id="uI5-Uj-FEA"/>
                         <outlet property="player6View" destination="1Gz-m9-w0t" id="pHV-aq-stq"/>
                         <outlet property="player7AddBtn" destination="aS4-I3-pSZ" id="zPh-Nm-Pqc"/>
                         <outlet property="player7Decrement" destination="tRv-J5-SBF" id="MCm-ff-Foc"/>
                         <outlet property="player7Increment" destination="6f8-4a-iRa" id="rJh-bZ-h9o"/>
                         <outlet property="player7MinusBtn" destination="Acj-b2-FjD" id="01C-ZB-cjq"/>
+                        <outlet property="player7Name" destination="mW5-kL-onT" id="AWC-mb-0PO"/>
                         <outlet property="player7Score" destination="r8m-en-ySo" id="QqI-Bw-yhj"/>
                         <outlet property="player7View" destination="6hT-5V-V7u" id="259-Dd-aQ7"/>
                         <outlet property="player8AddBtn" destination="Xig-aM-m8S" id="1EU-9x-1rW"/>
                         <outlet property="player8Decrement" destination="yfG-xo-ZP4" id="cOe-e7-97s"/>
                         <outlet property="player8Increment" destination="gnD-D7-q26" id="xKH-HR-Dtj"/>
                         <outlet property="player8MinusBtn" destination="07h-F1-x4p" id="5IY-yK-Efz"/>
+                        <outlet property="player8Name" destination="Evj-Nc-BTq" id="Cqv-uh-TEi"/>
                         <outlet property="player8Score" destination="EY2-dD-23x" id="yrf-R3-jMi"/>
                         <outlet property="player8View" destination="uSF-pt-QiD" id="vtd-ng-AKR"/>
                         <outlet property="removePlayerBtn" destination="Fxy-Xr-MpP" id="b7q-3D-cFb"/>

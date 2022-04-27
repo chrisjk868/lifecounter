@@ -28,6 +28,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var player7View: UIStackView!
     @IBOutlet weak var player8View: UIStackView!
     
+    // Player names
+    @IBOutlet weak var player1Name: UILabel!
+    @IBOutlet weak var player2Name: UILabel!
+    @IBOutlet weak var player3Name: UILabel!
+    @IBOutlet weak var player4Name: UILabel!
+    @IBOutlet weak var player5Name: UILabel!
+    @IBOutlet weak var player6Name: UILabel!
+    @IBOutlet weak var player7Name: UILabel!
+    @IBOutlet weak var player8Name: UILabel!
+    
     // Player score labels
     @IBOutlet weak var player1Score: UILabel!
     @IBOutlet weak var player2Score: UILabel!
@@ -41,50 +51,36 @@ class ViewController: UIViewController {
     // Player buttons
     @IBOutlet weak var player1AddBtn: UIButton!
     @IBOutlet weak var player1MinusBtn: UIButton!
-    
     @IBOutlet weak var player2AddBtn: UIButton!
     @IBOutlet weak var player2MinusBtn: UIButton!
-    
     @IBOutlet weak var player3AddBtn: UIButton!
     @IBOutlet weak var player3MinusBtn: UIButton!
-    
     @IBOutlet weak var player4AddBtn: UIButton!
     @IBOutlet weak var player4MinusBtn: UIButton!
-    
     @IBOutlet weak var player5AddBtn: UIButton!
     @IBOutlet weak var player5MinusBtn: UIButton!
-    
     @IBOutlet weak var player6AddBtn: UIButton!
     @IBOutlet weak var player6MinusBtn: UIButton!
-    
     @IBOutlet weak var player7AddBtn: UIButton!
     @IBOutlet weak var player7MinusBtn: UIButton!
-    
     @IBOutlet weak var player8AddBtn: UIButton!
     @IBOutlet weak var player8MinusBtn: UIButton!
     
     // Player text fields
     @IBOutlet weak var player1Decrement: UITextField!
     @IBOutlet weak var player1Increment: UITextField!
-    
     @IBOutlet weak var player2Decrement: UITextField!
     @IBOutlet weak var player2Increment: UITextField!
-    
     @IBOutlet weak var player3Decrement: UITextField!
     @IBOutlet weak var player3Increment: UITextField!
-    
     @IBOutlet weak var player4Decrement: UITextField!
     @IBOutlet weak var player4Increment: UITextField!
-    
     @IBOutlet weak var player5Decrement: UITextField!
     @IBOutlet weak var player5Increment: UITextField!
-    
     @IBOutlet weak var player6Decrement: UITextField!
     @IBOutlet weak var player6Increment: UITextField!
-    
     @IBOutlet weak var player7Decrement: UITextField!
     @IBOutlet weak var player7Increment: UITextField!
-    
     @IBOutlet weak var player8Decrement: UITextField!
     @IBOutlet weak var player8Increment: UITextField!
     
@@ -98,6 +94,7 @@ class ViewController: UIViewController {
     var playerScores = [String: Int]()
     var lines = 0
     var history : [String] = []
+    var nameTracker = [String: [String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,6 +115,23 @@ class ViewController: UIViewController {
                         "Player 6": 20,
                         "Player 7": 20,
                         "Player 8": 20]
+        nameTracker = ["Player 1": ["Player 1"],
+                       "Player 2": ["Player 2"],
+                       "Player 3": ["Player 3"],
+                       "Player 4": ["Player 4"],
+                       "Player 5": ["Player 5"],
+                       "Player 6": ["Player 6"],
+                       "Player 7": ["Player 7"],
+                       "Player 8": ["Player 8"]]
+        
+        setupLabelTapPlayer1()
+        setupLabelTapPlayer2()
+        setupLabelTapPlayer3()
+        setupLabelTapPlayer4()
+        setupLabelTapPlayer5()
+        setupLabelTapPlayer6()
+        setupLabelTapPlayer7()
+        setupLabelTapPlayer8()
         
         player1Decrement.keyboardType = .numberPad
         player1Increment.keyboardType = .numberPad
@@ -174,6 +188,7 @@ class ViewController: UIViewController {
         let historyView = storyboard?.instantiateViewController(identifier: "history") as! HistoryViewController
         historyView.history = history
         historyView.lines = lines
+        historyView.nameTracker = self.nameTracker
         present(historyView, animated: true)
     }
 
@@ -235,6 +250,230 @@ class ViewController: UIViewController {
         playerViewEnable -= 1
     }
     
+    @objc func player1LabelTapped(_ sender: UITapGestureRecognizer) {
+        print("Player 1 Tapped")
+        let alert = UIAlertController(title: "Change Player Name", message: "Enter a name", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            if textField.text! != "" {
+                self.nameTracker["Player 1"]!.append(textField.text!)
+                self.player1Name.text = textField.text!
+            }
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+        
+    func setupLabelTapPlayer1() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.player1LabelTapped(_:)))
+        player1Name.isUserInteractionEnabled = true
+        player1Name.addGestureRecognizer(labelTap)
+    }
+    
+    @objc func player2LabelTapped(_ sender: UITapGestureRecognizer) {
+        print("Player 2 Tapped")
+        let alert = UIAlertController(title: "Change Player Name", message: "Enter a name", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            if textField.text! != "" {
+                self.nameTracker["Player 2"]!.append(textField.text!)
+                self.player2Name.text = textField.text!
+            }
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+        
+    func setupLabelTapPlayer2() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.player2LabelTapped(_:)))
+        player2Name.isUserInteractionEnabled = true
+        player2Name.addGestureRecognizer(labelTap)
+    }
+    
+    @objc func player3LabelTapped(_ sender: UITapGestureRecognizer) {
+        print("Player 3 Tapped")
+        let alert = UIAlertController(title: "Change Player Name", message: "Enter a name", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            if textField.text! != "" {
+                self.nameTracker["Player 3"]!.append(textField.text!)
+                self.player3Name.text = textField.text!
+            }
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+        
+    func setupLabelTapPlayer3() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.player3LabelTapped(_:)))
+        player3Name.isUserInteractionEnabled = true
+        player3Name.addGestureRecognizer(labelTap)
+    }
+    
+    @objc func player4LabelTapped(_ sender: UITapGestureRecognizer) {
+        print("Player 4 Tapped")
+        let alert = UIAlertController(title: "Change Player Name", message: "Enter a name", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            if textField.text! != "" {
+                self.nameTracker["Player 4"]!.append(textField.text!)
+                self.player4Name.text = textField.text!
+            }
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+        
+    func setupLabelTapPlayer4() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.player4LabelTapped(_:)))
+        player4Name.isUserInteractionEnabled = true
+        player4Name.addGestureRecognizer(labelTap)
+    }
+    
+    @objc func player5LabelTapped(_ sender: UITapGestureRecognizer) {
+        print("Player 5 Tapped")
+        let alert = UIAlertController(title: "Change Player Name", message: "Enter a name", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            if textField.text! != "" {
+                self.nameTracker["Player 5"]!.append(textField.text!)
+                self.player5Name.text = textField.text!
+            }
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+        
+    func setupLabelTapPlayer5() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.player5LabelTapped(_:)))
+        player5Name.isUserInteractionEnabled = true
+        player5Name.addGestureRecognizer(labelTap)
+    }
+    
+    @objc func player6LabelTapped(_ sender: UITapGestureRecognizer) {
+        print("Player 6 Tapped")
+        let alert = UIAlertController(title: "Change Player Name", message: "Enter a name", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            if textField.text! != "" {
+                self.nameTracker["Player 6"]!.append(textField.text!)
+                self.player6Name.text = textField.text!
+            }
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+        
+    func setupLabelTapPlayer6() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.player6LabelTapped(_:)))
+        player6Name.isUserInteractionEnabled = true
+        player6Name.addGestureRecognizer(labelTap)
+    }
+    
+    @objc func player7LabelTapped(_ sender: UITapGestureRecognizer) {
+        print("Player 7 Tapped")
+        let alert = UIAlertController(title: "Change Player Name", message: "Enter a name", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            if textField.text! != "" {
+                self.nameTracker["Player 7"]!.append(textField.text!)
+                self.player7Name.text = textField.text!
+            }
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+        
+    func setupLabelTapPlayer7() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.player7LabelTapped(_:)))
+        player7Name.isUserInteractionEnabled = true
+        player7Name.addGestureRecognizer(labelTap)
+    }
+    
+    @objc func player8LabelTapped(_ sender: UITapGestureRecognizer) {
+        print("Player 8 Tapped")
+        let alert = UIAlertController(title: "Change Player Name", message: "Enter a name", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            if textField.text! != "" {
+                self.nameTracker["Player 8"]!.append(textField.text!)
+                self.player8Name.text = textField.text!
+            }
+        }))
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+        
+    func setupLabelTapPlayer8() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.player8LabelTapped(_:)))
+        player8Name.isUserInteractionEnabled = true
+        player8Name.addGestureRecognizer(labelTap)
+    }
+    
     @IBAction func player1AddBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
         removePlayerBtn.isEnabled = false
@@ -242,7 +481,7 @@ class ViewController: UIViewController {
         let add = player1Increment.text!
         playerScores["Player 1"]! += Int(add)!
         player1Score.text = "Score: \(playerScores["Player 1"]!)"
-        history.append("Player 1 gained \(add) life \n")
+        history.append("\(nameTracker["Player 1"]!.last!) gained \(add) life \n")
         lines += 1
         evaluate()
     }
@@ -254,7 +493,7 @@ class ViewController: UIViewController {
         let subtract = player1Decrement.text!
         playerScores["Player 1"]! -= Int(subtract)!
         player1Score.text = "Score: \(playerScores["Player 1"]!)"
-        history.append("Player 1 lost \(subtract) life \n")
+        history.append("\(nameTracker["Player 1"]!.last!) lost \(subtract) life \n")
         lines += 1
         evaluate()
     }
@@ -266,7 +505,7 @@ class ViewController: UIViewController {
         let add = player2Increment.text!
         playerScores["Player 2"]! += Int(add)!
         player2Score.text = "Score: \(playerScores["Player 2"]!)"
-        history.append("Player 2 gained \(add) life \n")
+        history.append("\(nameTracker["Player 2"]!.last!) gained \(add) life \n")
         lines += 1
         evaluate()
     }
@@ -278,7 +517,7 @@ class ViewController: UIViewController {
         let subtract = player2Decrement.text!
         playerScores["Player 2"]! -= Int(subtract)!
         player2Score.text = "Score: \(playerScores["Player 2"]!)"
-        history.append("Player 2 lost \(subtract) life \n")
+        history.append("\(nameTracker["Player 2"]!.last!) lost \(subtract) life \n")
         lines += 1
         evaluate()
     }
@@ -290,7 +529,7 @@ class ViewController: UIViewController {
         let add = player3Increment.text!
         playerScores["Player 3"]! += Int(add)!
         player3Score.text = "Score: \(playerScores["Player 3"]!)"
-        history.append("Player 3 gained \(add) life \n")
+        history.append("\(nameTracker["Player 3"]!.last!) gained \(add) life \n")
         lines += 1
         evaluate()
     }
@@ -302,7 +541,7 @@ class ViewController: UIViewController {
         let subtract = player3Decrement.text!
         playerScores["Player 3"]! -= Int(subtract)!
         player3Score.text = "Score: \(playerScores["Player 3"]!)"
-        history.append("Player 3 lost \(subtract) life \n")
+        history.append("\(nameTracker["Player 3"]!.last!) lost \(subtract) life \n")
         lines += 1
         evaluate()
     }
@@ -314,7 +553,7 @@ class ViewController: UIViewController {
         let add = player4Increment.text!
         playerScores["Player 4"]! += Int(add)!
         player4Score.text = "Score: \(playerScores["Player 4"]!)"
-        history.append("Player 4 gained \(add) life \n")
+        history.append("\(nameTracker["Player 4"]!.last!) gained \(add) life \n")
         lines += 1
         evaluate()
     }
@@ -326,7 +565,7 @@ class ViewController: UIViewController {
         let subtract = player4Decrement.text!
         playerScores["Player 4"]! -= Int(subtract)!
         player4Score.text = "Score: \(playerScores["Player 4"]!)"
-        history.append("Player 4 lost \(subtract) life \n")
+        history.append("\(nameTracker["Player 4"]!.last!) lost \(subtract) life \n")
         lines += 1
         evaluate()
     }
@@ -338,7 +577,7 @@ class ViewController: UIViewController {
         let add = player5Increment.text!
         playerScores["Player 5"]! += Int(add)!
         player5Score.text = "Score: \(playerScores["Player 5"]!)"
-        history.append("Player 5 gained \(add) life \n")
+        history.append("\(nameTracker["Player 5"]!.last!) gained \(add) life \n")
         lines += 1
         evaluate()
     }
@@ -350,7 +589,7 @@ class ViewController: UIViewController {
         let subtract = player5Decrement.text!
         playerScores["Player 5"]! -= Int(subtract)!
         player5Score.text = "Score: \(playerScores["Player 5"]!)"
-        history.append("Player 5 lost \(subtract) life \n")
+        history.append("\(nameTracker["Player 5"]!.last!) lost \(subtract) life \n")
         lines += 1
         evaluate()
     }
@@ -362,7 +601,7 @@ class ViewController: UIViewController {
         let add = player6Increment.text!
         playerScores["Player 6"]! += Int(add)!
         player6Score.text = "Score: \(playerScores["Player 6"]!)"
-        history.append("Player 6 gained \(add) life \n")
+        history.append("\(nameTracker["Player 6"]!.last!) gained \(add) life \n")
         lines += 1
         evaluate()
     }
@@ -374,7 +613,7 @@ class ViewController: UIViewController {
         let subtract = player6Decrement.text!
         playerScores["Player 6"]! -= Int(subtract)!
         player6Score.text = "Score: \(playerScores["Player 6"]!)"
-        history.append("Player 6 lost \(subtract) life \n")
+        history.append("\(nameTracker["Player 6"]!.last!) lost \(subtract) life \n")
         lines += 1
         evaluate()
     }
@@ -386,7 +625,7 @@ class ViewController: UIViewController {
         let add = player7Increment.text!
         playerScores["Player 7"]! += Int(add)!
         player7Score.text = "Score: \(playerScores["Player 7"]!)"
-        history.append("Player 7 gained \(add) life \n")
+        history.append("\(nameTracker["Player 7"]!.last!) gained \(add) life \n")
         lines += 1
         evaluate()
     }
@@ -398,7 +637,7 @@ class ViewController: UIViewController {
         let subtract = player7Decrement.text!
         playerScores["Player 7"]! -= Int(subtract)!
         player7Score.text = "Score: \(playerScores["Player 7"]!)"
-        history.append("Player 7 lost \(subtract) life \n")
+        history.append("\(nameTracker["Player 7"]!.last!) lost \(subtract) life \n")
         lines += 1
         evaluate()
     }
@@ -410,7 +649,7 @@ class ViewController: UIViewController {
         let add = player8Increment.text!
         playerScores["Player 8"]! += Int(add)!
         player8Score.text = "Score: \(playerScores["Player 8"]!)"
-        history.append("Player 8 gained \(add) life \n")
+        history.append("\(nameTracker["Player 8"]!.last!) gained \(add) life \n")
         lines += 1
         evaluate()
     }
@@ -422,7 +661,7 @@ class ViewController: UIViewController {
         let subtract = player8Decrement.text!
         playerScores["Player 8"]! -= Int(subtract)!
         player8Score.text = "Score: \(playerScores["Player 8"]!)"
-        history.append("Player 8 lost \(subtract) life \n")
+        history.append("\(nameTracker["Player 8"]!.last!) lost \(subtract) life \n")
         lines += 1
         evaluate()
     }
@@ -430,6 +669,14 @@ class ViewController: UIViewController {
     @IBAction func resetBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = true
         removePlayerBtn.isEnabled = true
+        player1Name.text = "Player 1"
+        player2Name.text = "Player 2"
+        player3Name.text = "Player 3"
+        player4Name.text = "Player 4"
+        player5Name.text = "Player 5"
+        player6Name.text = "Player 6"
+        player7Name.text = "Player 7"
+        player8Name.text = "Player 8"
         player1Score.text = "Score: 20"
         player2Score.text = "Score: 20"
         player3Score.text = "Score: 20"
@@ -506,13 +753,21 @@ class ViewController: UIViewController {
         playerViewEnable = 4
         lines = 0
         history = []
+        nameTracker = ["Player 1": ["Player 1"],
+                       "Player 2": ["Player 2"],
+                       "Player 3": ["Player 3"],
+                       "Player 4": ["Player 4"],
+                       "Player 5": ["Player 5"],
+                       "Player 6": ["Player 6"],
+                       "Player 7": ["Player 7"],
+                       "Player 8": ["Player 8"]]
     }
     
     func evaluate() {
         for (player, life) in playerScores {
             if life <= 0 {
                 print("lost")
-                endGameMessage.text = "\(player) lost the game!"
+                endGameMessage.text = "\(nameTracker[player]!.last!) lost the game!"
                 endGameMessage.isHidden = false
                 player1AddBtn.isEnabled = false
                 player1MinusBtn.isEnabled = false

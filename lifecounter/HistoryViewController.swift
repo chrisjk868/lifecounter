@@ -11,6 +11,7 @@ class HistoryViewController: UIViewController {
 
     @IBOutlet weak var historyLog: UILabel!
     var history : [String] = []
+    var nameTracker = [String: [String]]()
     var lines : Int = 0
     var buildString : String = ""
     
@@ -19,6 +20,7 @@ class HistoryViewController: UIViewController {
         for message in history {
             buildString += message
         }
+        print(nameTracker)
         historyLog.numberOfLines = lines
         historyLog.text = buildString
     }
