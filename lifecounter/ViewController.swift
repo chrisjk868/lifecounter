@@ -15,7 +15,14 @@ class ViewController: UIViewController {
     // Add player
     @IBOutlet weak var addPlayerBtn: UIButton!
     
+    // Remove player
+    @IBOutlet weak var removePlayerBtn: UIButton!
+    
     // Player views
+    @IBOutlet weak var player1View: UIStackView!
+    @IBOutlet weak var player2View: UIStackView!
+    @IBOutlet weak var player3View: UIStackView!
+    @IBOutlet weak var player4View: UIStackView!
     @IBOutlet weak var player5View: UIStackView!
     @IBOutlet weak var player6View: UIStackView!
     @IBOutlet weak var player7View: UIStackView!
@@ -84,6 +91,8 @@ class ViewController: UIViewController {
     // End game message
     @IBOutlet weak var endGameMessage: UILabel!
     
+    // Reset game
+    @IBOutlet weak var resetGame: UIButton!
     
     var playerViewEnable : Int = 4
     var playerScores = [String: Int]()
@@ -94,6 +103,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         addPlayerBtn.isEnabled = true
+        removePlayerBtn.isEnabled = true
         player5View.isHidden = true
         player6View.isHidden = true
         player7View.isHidden = true
@@ -168,8 +178,21 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addPlayerBtn(_ sender: Any) {
+        evaluatePlayers()
         playerViewEnable += 1
+        if playerViewEnable > 0 && playerViewEnable < 8 {
+            removePlayerBtn.isEnabled = true
+            addPlayerBtn.isEnabled = true
+        }
         switch playerViewEnable {
+        case 1:
+            player1View.isHidden = false
+        case 2:
+            player2View.isHidden = false
+        case 3:
+            player3View.isHidden = false
+        case 4:
+            player4View.isHidden = false
         case 5:
             player5View.isHidden = false
         case 6:
@@ -182,9 +205,39 @@ class ViewController: UIViewController {
             addPlayerBtn.isEnabled = false
         }
     }
-
+    
+    @IBAction func rmvPlayerBtn(_ sender: Any) {
+        evaluatePlayers()
+        if playerViewEnable > 0 && playerViewEnable <= 8 {
+            removePlayerBtn.isEnabled = true
+            addPlayerBtn.isEnabled = true
+        }
+        switch playerViewEnable {
+        case 1:
+            player1View.isHidden = true
+        case 2:
+            player2View.isHidden = true
+        case 3:
+            player3View.isHidden = true
+        case 4:
+            player4View.isHidden = true
+        case 5:
+            player5View.isHidden = true
+        case 6:
+            player6View.isHidden = true
+        case 7:
+            player7View.isHidden = true
+        case 8:
+            player8View.isHidden = true
+        default:
+            removePlayerBtn.isEnabled = false
+        }
+        playerViewEnable -= 1
+    }
+    
     @IBAction func player1AddBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player1Increment.resignFirstResponder()
         let add = player1Increment.text!
         playerScores["Player 1"]! += Int(add)!
@@ -196,6 +249,7 @@ class ViewController: UIViewController {
 
     @IBAction func player1MinusBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player1Decrement.resignFirstResponder()
         let subtract = player1Decrement.text!
         playerScores["Player 1"]! -= Int(subtract)!
@@ -207,6 +261,7 @@ class ViewController: UIViewController {
 
     @IBAction func player2AddBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player2Increment.resignFirstResponder()
         let add = player2Increment.text!
         playerScores["Player 2"]! += Int(add)!
@@ -218,6 +273,7 @@ class ViewController: UIViewController {
 
     @IBAction func player2MinusBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player2Decrement.resignFirstResponder()
         let subtract = player2Decrement.text!
         playerScores["Player 2"]! -= Int(subtract)!
@@ -229,6 +285,7 @@ class ViewController: UIViewController {
 
     @IBAction func player3AddBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player3Increment.resignFirstResponder()
         let add = player3Increment.text!
         playerScores["Player 3"]! += Int(add)!
@@ -240,6 +297,7 @@ class ViewController: UIViewController {
 
     @IBAction func player3MinusBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player3Decrement.resignFirstResponder()
         let subtract = player3Decrement.text!
         playerScores["Player 3"]! -= Int(subtract)!
@@ -251,6 +309,7 @@ class ViewController: UIViewController {
 
     @IBAction func player4AddBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player4Increment.resignFirstResponder()
         let add = player4Increment.text!
         playerScores["Player 4"]! += Int(add)!
@@ -262,6 +321,7 @@ class ViewController: UIViewController {
 
     @IBAction func player4MinusBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player4Decrement.resignFirstResponder()
         let subtract = player4Decrement.text!
         playerScores["Player 4"]! -= Int(subtract)!
@@ -273,6 +333,7 @@ class ViewController: UIViewController {
 
     @IBAction func player5AddBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player5Increment.resignFirstResponder()
         let add = player5Increment.text!
         playerScores["Player 5"]! += Int(add)!
@@ -284,6 +345,7 @@ class ViewController: UIViewController {
 
     @IBAction func player5MinusBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player5Decrement.resignFirstResponder()
         let subtract = player5Decrement.text!
         playerScores["Player 5"]! -= Int(subtract)!
@@ -295,6 +357,7 @@ class ViewController: UIViewController {
 
     @IBAction func player6AddBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player6Increment.resignFirstResponder()
         let add = player6Increment.text!
         playerScores["Player 6"]! += Int(add)!
@@ -306,6 +369,7 @@ class ViewController: UIViewController {
 
     @IBAction func player6MinusBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player6Decrement.resignFirstResponder()
         let subtract = player6Decrement.text!
         playerScores["Player 6"]! -= Int(subtract)!
@@ -317,6 +381,7 @@ class ViewController: UIViewController {
 
     @IBAction func player7AddBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player7Increment.resignFirstResponder()
         let add = player7Increment.text!
         playerScores["Player 7"]! += Int(add)!
@@ -328,6 +393,7 @@ class ViewController: UIViewController {
 
     @IBAction func player7MinusBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player7Decrement.resignFirstResponder()
         let subtract = player7Decrement.text!
         playerScores["Player 7"]! -= Int(subtract)!
@@ -339,6 +405,7 @@ class ViewController: UIViewController {
 
     @IBAction func player8AddBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player8Increment.resignFirstResponder()
         let add = player8Increment.text!
         playerScores["Player 8"]! += Int(add)!
@@ -350,6 +417,7 @@ class ViewController: UIViewController {
 
     @IBAction func player8MinusBtn(_ sender: Any) {
         addPlayerBtn.isEnabled = false
+        removePlayerBtn.isEnabled = false
         player8Decrement.resignFirstResponder()
         let subtract = player8Decrement.text!
         playerScores["Player 8"]! -= Int(subtract)!
@@ -358,10 +426,92 @@ class ViewController: UIViewController {
         lines += 1
         evaluate()
     }
-
+    
+    @IBAction func resetBtn(_ sender: Any) {
+        addPlayerBtn.isEnabled = true
+        removePlayerBtn.isEnabled = true
+        player1Score.text = "Score: 20"
+        player2Score.text = "Score: 20"
+        player3Score.text = "Score: 20"
+        player4Score.text = "Score: 20"
+        player5Score.text = "Score: 20"
+        player6Score.text = "Score: 20"
+        player7Score.text = "Score: 20"
+        player8Score.text = "Score: 20"
+        player1AddBtn.isEnabled = true
+        player1MinusBtn.isEnabled = true
+        player2AddBtn.isEnabled = true
+        player2MinusBtn.isEnabled = true
+        player3AddBtn.isEnabled = true
+        player3MinusBtn.isEnabled = true
+        player4AddBtn.isEnabled = true
+        player4MinusBtn.isEnabled = true
+        player5AddBtn.isEnabled = true
+        player5MinusBtn.isEnabled = true
+        player6AddBtn.isEnabled = true
+        player6MinusBtn.isEnabled = true
+        player7AddBtn.isEnabled = true
+        player7MinusBtn.isEnabled = true
+        player8AddBtn.isEnabled = true
+        player8MinusBtn.isEnabled = true
+        player1Decrement.isEnabled = true
+        player1Increment.isEnabled = true
+        player2Decrement.isEnabled = true
+        player2Increment.isEnabled = true
+        player3Decrement.isEnabled = true
+        player3Increment.isEnabled = true
+        player4Decrement.isEnabled = true
+        player4Increment.isEnabled = true
+        player5Decrement.isEnabled = true
+        player5Increment.isEnabled = true
+        player6Decrement.isEnabled = true
+        player6Increment.isEnabled = true
+        player7Decrement.isEnabled = true
+        player7Increment.isEnabled = true
+        player8Decrement.isEnabled = true
+        player8Increment.isEnabled = true
+        player1Decrement.text = ""
+        player1Increment.text = ""
+        player2Decrement.text = ""
+        player2Increment.text = ""
+        player3Decrement.text = ""
+        player3Increment.text = ""
+        player4Decrement.text = ""
+        player4Increment.text = ""
+        player5Decrement.text = ""
+        player5Increment.text = ""
+        player6Decrement.text = ""
+        player6Increment.text = ""
+        player7Decrement.text = ""
+        player7Increment.text = ""
+        player8Decrement.text = ""
+        player8Increment.text = ""
+        player1View.isHidden = false
+        player2View.isHidden = false
+        player3View.isHidden = false
+        player4View.isHidden = false
+        player5View.isHidden = true
+        player6View.isHidden = true
+        player7View.isHidden = true
+        player8View.isHidden = true
+        endGameMessage.isHidden = true
+        playerScores = ["Player 1": 20,
+                        "Player 2": 20,
+                        "Player 3": 20,
+                        "Player 4": 20,
+                        "Player 5": 20,
+                        "Player 6": 20,
+                        "Player 7": 20,
+                        "Player 8": 20]
+        playerViewEnable = 4
+        lines = 0
+        history = []
+    }
+    
     func evaluate() {
         for (player, life) in playerScores {
             if life <= 0 {
+                print("lost")
                 endGameMessage.text = "\(player) lost the game!"
                 endGameMessage.isHidden = false
                 player1AddBtn.isEnabled = false
@@ -397,6 +547,21 @@ class ViewController: UIViewController {
                 player8Decrement.isEnabled = false
                 player8Increment.isEnabled = false
             }
+        }
+    }
+    
+    func evaluatePlayers() {
+        if playerViewEnable <= 0 {
+            playerViewEnable = 0
+            addPlayerBtn.isEnabled = true
+            removePlayerBtn.isEnabled = false
+        } else if playerViewEnable >= 8 {
+            playerViewEnable = 8
+            addPlayerBtn.isEnabled = false
+            removePlayerBtn.isEnabled = true
+        } else {
+            addPlayerBtn.isEnabled = true
+            removePlayerBtn.isEnabled = true
         }
     }
     

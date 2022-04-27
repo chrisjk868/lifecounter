@@ -17,23 +17,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ber-4d-1oJ">
-                                <rect key="frame" x="20" y="44" width="70.5" height="31"/>
+                                <rect key="frame" x="20" y="65" width="65" height="28.5"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="History"/>
+                                <buttonConfiguration key="configuration" style="gray" title="History">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="viewHistoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="egv-y3-Hhe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnW-Ls-UJT">
-                                <rect key="frame" x="300.5" y="44" width="93.5" height="31"/>
+                                <rect key="frame" x="309" y="65" width="85" height="28.5"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Add Player"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Add Player">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                    <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="addPlayerBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oE8-0O-9NK"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WHw-1I-xzO">
-                                <rect key="frame" x="48" y="161" width="318" height="408"/>
+                                <rect key="frame" x="48" y="158.5" width="318" height="408"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V9Y-MH-enq">
                                         <rect key="frame" x="0.0" y="0.0" width="318" height="51"/>
@@ -441,23 +447,53 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mK2-k6-6YB">
-                                <rect key="frame" x="183" y="643" width="48" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="188.5" y="113.5" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fxy-Xr-MpP">
+                                <rect key="frame" x="193.5" y="65" width="107.5" height="28.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Remove Player">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="rmvPlayerBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mm7-OQ-bck"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAk-HW-l3D">
+                                <rect key="frame" x="20" y="101" width="56.5" height="28.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AYl-Ve-b0b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ber-4d-1oJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3F4-Kz-3py"/>
-                            <constraint firstItem="Ber-4d-1oJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5UZ-f8-Fjf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mK2-k6-6YB" secondAttribute="bottom" constant="195" id="D8z-13-szv"/>
+                            <constraint firstItem="Ber-4d-1oJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="5UZ-f8-Fjf"/>
+                            <constraint firstItem="xAk-HW-l3D" firstAttribute="leading" secondItem="Ber-4d-1oJ" secondAttribute="leading" id="Cv9-4b-A7d"/>
                             <constraint firstItem="mK2-k6-6YB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FxT-9D-Wp6"/>
-                            <constraint firstItem="WHw-1I-xzO" firstAttribute="top" secondItem="Ber-4d-1oJ" secondAttribute="bottom" constant="86" id="NgW-KP-Yj4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mK2-k6-6YB" secondAttribute="trailing" id="N5K-8C-Rfj"/>
+                            <constraint firstItem="WHw-1I-xzO" firstAttribute="top" secondItem="Ber-4d-1oJ" secondAttribute="bottom" constant="65" id="NgW-KP-Yj4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pnW-Ls-UJT" secondAttribute="trailing" constant="20" id="OnV-Wh-pio"/>
+                            <constraint firstItem="Fxy-Xr-MpP" firstAttribute="top" secondItem="pnW-Ls-UJT" secondAttribute="top" id="PRk-rh-oFn"/>
+                            <constraint firstItem="Fxy-Xr-MpP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ber-4d-1oJ" secondAttribute="trailing" constant="8" symbolic="YES" id="WlF-7u-O1o"/>
+                            <constraint firstItem="xAk-HW-l3D" firstAttribute="top" secondItem="Ber-4d-1oJ" secondAttribute="bottom" constant="7.5" id="Z67-LH-I5w"/>
+                            <constraint firstItem="pnW-Ls-UJT" firstAttribute="leading" secondItem="Fxy-Xr-MpP" secondAttribute="trailing" constant="8" symbolic="YES" id="bh5-yN-GeF"/>
+                            <constraint firstItem="WHw-1I-xzO" firstAttribute="top" secondItem="mK2-k6-6YB" secondAttribute="bottom" constant="27" id="frv-1G-Fd1"/>
+                            <constraint firstItem="mK2-k6-6YB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hlQ-Wr-Mmy"/>
+                            <constraint firstItem="mK2-k6-6YB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jUt-Rv-9m8"/>
                             <constraint firstItem="pnW-Ls-UJT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ber-4d-1oJ" secondAttribute="trailing" constant="8" symbolic="YES" id="mOj-pi-zf5"/>
-                            <constraint firstItem="pnW-Ls-UJT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oSc-LI-KtV"/>
+                            <constraint firstItem="pnW-Ls-UJT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="oSc-LI-KtV"/>
                             <constraint firstItem="WHw-1I-xzO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zKc-ub-jel"/>
                         </constraints>
                     </view>
@@ -469,21 +505,25 @@
                         <outlet property="player1Increment" destination="ll9-UO-Rds" id="wuY-81-2IZ"/>
                         <outlet property="player1MinusBtn" destination="c9Z-FQ-LKG" id="1Dp-gd-CRJ"/>
                         <outlet property="player1Score" destination="qLn-Zq-tsB" id="3hd-0o-YOd"/>
+                        <outlet property="player1View" destination="V9Y-MH-enq" id="fEP-LG-4hj"/>
                         <outlet property="player2AddBtn" destination="rxz-ry-El3" id="3c1-Py-P4e"/>
                         <outlet property="player2Decrement" destination="35N-ok-ae0" id="4tq-pi-bww"/>
                         <outlet property="player2Increment" destination="vxp-xr-704" id="FCR-Wi-N7d"/>
                         <outlet property="player2MinusBtn" destination="7gl-a4-1Nf" id="YKt-US-6hU"/>
                         <outlet property="player2Score" destination="KdO-tH-r5J" id="505-bb-XnF"/>
+                        <outlet property="player2View" destination="MKX-wk-06W" id="XtM-6h-T18"/>
                         <outlet property="player3AddBtn" destination="12X-Rm-akA" id="9Uv-Za-WXg"/>
                         <outlet property="player3Decrement" destination="KCI-io-THu" id="aeC-Gg-24Q"/>
                         <outlet property="player3Increment" destination="V0C-J2-Uha" id="TjQ-Ax-hWn"/>
                         <outlet property="player3MinusBtn" destination="5rl-ms-sFz" id="WQC-RS-ZjE"/>
                         <outlet property="player3Score" destination="vbU-OU-6Mz" id="weJ-Ce-7vJ"/>
+                        <outlet property="player3View" destination="IiL-GX-Miw" id="OfN-lI-5w9"/>
                         <outlet property="player4AddBtn" destination="zFG-AP-CjO" id="Vvk-Di-2BN"/>
                         <outlet property="player4Decrement" destination="F4g-IG-1oi" id="b1T-Zy-UeE"/>
                         <outlet property="player4Increment" destination="czM-jv-yP7" id="okS-Cc-xfL"/>
                         <outlet property="player4MinusBtn" destination="EfC-gJ-TAc" id="9Ip-uE-mja"/>
                         <outlet property="player4Score" destination="O4G-68-tBC" id="UOx-OQ-K8R"/>
+                        <outlet property="player4View" destination="rIx-0D-3JF" id="3nn-3F-8of"/>
                         <outlet property="player5AddBtn" destination="odO-So-W4h" id="his-6r-2VN"/>
                         <outlet property="player5Decrement" destination="osq-zy-rzK" id="7Lw-KN-ZE2"/>
                         <outlet property="player5Increment" destination="Pe4-gp-evP" id="f8W-RX-PbE"/>
@@ -508,6 +548,8 @@
                         <outlet property="player8MinusBtn" destination="07h-F1-x4p" id="5IY-yK-Efz"/>
                         <outlet property="player8Score" destination="EY2-dD-23x" id="yrf-R3-jMi"/>
                         <outlet property="player8View" destination="uSF-pt-QiD" id="vtd-ng-AKR"/>
+                        <outlet property="removePlayerBtn" destination="Fxy-Xr-MpP" id="b7q-3D-cFb"/>
+                        <outlet property="resetGame" destination="xAk-HW-l3D" id="wdw-Me-tNb"/>
                         <outlet property="viewHistory" destination="Ber-4d-1oJ" id="Ofm-Tw-iku"/>
                     </connections>
                 </viewController>
@@ -580,6 +622,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
